@@ -1,3 +1,82 @@
+/*
+    []A altura do cabeçalho é definida em 1 lugar (para os links)
+    []O conteúdo é centralizado verticalmente (para qualquer altura de cabeçalho)
+    []CSS é usado para mostrar todas as letras em maiúsculas (não as digite em HTML)
+    []O logotipo é uma imagem envolvida com um link
+    []Variável CSS é usada para uma cor azul
+    []O pseudoelemento é usado para uma linha azul abaixo do link ativo
+    []O código segue todas as regras de estilo de código
+    []A configuração do Google Fonts segue os requisitos.
+*/
+
+/*
+    []a altura deve ser definida para links de navegação (não o cabeçalho), pegue-a do design
+    []o conteúdo do cabeçalho deve ser centralizado verticalmente
+    []❗️ o link azul com uma linha abaixo deve ter uma classe is-active além de quaisquer outras classes que você adicionar
+    []a cor do link deve ser alterada :hover
+    []usar o ::aftere posicioná-lo em relação a um link com is-active aula
+    []não use o flex gap propriedade para recuos. Não é suportado em testes, use margin em vez de
+    []não deve haver margens antes do primeiro e depois do último item da lista
+    []não copie apenas todos os estilos do Figma. Pense em quais deles são relevantes. Tamanhos desiguais (por exemplo line-height: 14.6px) são definitivamente inúteis
+
+*/
+
 body {
   margin: 0;
+
+  --color-blue: #00acdc;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 10px 50px;
+}
+
+ul {
+  display: flex;
+  height: 100%;
+}
+
+li {
+  list-style: none;
+  margin: 0 0 0 20px;
+
+  position: relative;
+
+  height: 100%;
+}
+
+.is-active {
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  color: black;
+}
+
+[data-qa='hover'] {
+  color: var(--color-blue);
+}
+
+a:active {
+  color: var(--color-blue);
+}
+
+a:hover {
+  color: var(--color-blue);
+}
+
+.is-active::after{
+  content: '';
+
+  position: absolute;
+
+  width: 100%;
+
+  border-bottom: 3px solid var(--color-blue);
+
+  bottom: 18px;
+  left: 0;
 }
